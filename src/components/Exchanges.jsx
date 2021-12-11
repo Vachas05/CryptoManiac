@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import millify from "millify";
 import { Collapse, Row, Col, Typography, Avatar } from "antd";
 import HTMLReactParser from "html-react-parser";
@@ -13,12 +13,16 @@ const Exchanges = () => {
   const { data, isFetching } = useGetExchangesQuery();
   const exchangesList = data?.data?.exchanges;
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   if (isFetching) return <Loader />;
 
   return (
     <>
       <Row>
-        <Col span={6} style={{paddingLeft:'35px'}}><Title level={4}>Exchanges</Title></Col>
+        <Col span={6} style={{paddingLeft:'1px'}}><Title level={4}>Exchanges</Title></Col>
         <Col span={6} style={{textAlign:'center'}}><Title level={4}>24h Trade Volume</Title></Col>
         <Col span={6} style={{textAlign:'center'}}><Title level={4}>Markets</Title></Col>
         <Col span={6} style={{textAlign:'center'}}><Title level={4}>Change</Title></Col>

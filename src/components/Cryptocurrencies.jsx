@@ -21,6 +21,10 @@ const Cryptocurrencies = ({ simplified }) => {
     setCryptos(filteredData);
   }, [cryptosList, searchTerm]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   if (isFetching) return <Loader/>
 
   return (
