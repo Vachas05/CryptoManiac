@@ -17,6 +17,10 @@ const Homepage = () => {
         window.scrollTo(0, 0)
       }, [])
 
+      if(!isFetching){
+          console.log(data);
+      }
+
     if(isFetching) return <Loader/>;
 
     return (
